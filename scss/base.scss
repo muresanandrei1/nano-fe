@@ -1,0 +1,54 @@
+@import "./variables/colors";
+@import "./variables/fonts";
+@import "./base/reset";
+@import "./base/form";
+@import "./base/general";
+@import "./utilities/utilities";
+@import "./animations/animations";
+@import "../assets/fonts.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,800,800i&display=swap");
+
+.btn {
+  padding: 8px 16px;
+  background-color: $white;
+  color: $grey-dark;
+  font-weight: bolder;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  &:hover {
+    background-color: $grey-dark;
+    color: $white;
+  }
+}
+
+.btn-dark {
+  background-color: $grey-dark;
+  color: $white;
+  &:hover {
+    background-color: $white;
+    color: $grey-dark;
+  }
+}
+
+.btn-submit {
+  padding: 16px 24px;
+}
+
+body {
+  font-family: "Roboto";
+}
+
+.v-navigation-drawer {
+  z-index: 1000 !important;
+}
+
+.v-content__wrap {
+  background: $red;
+}
+
+a {
+  display: inline-block;
+}
