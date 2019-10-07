@@ -20,7 +20,7 @@ app.post("/", (req, res) => {
   const mailOptions = {
     from: "comanda@nanorental.ro", // sender address
     to: req.body.email, // list of receivers
-    subject: `You got a new message from andrei`, // Subject line
+    subject: "Comanda Nano Rent a car", // Subject line
     html: mailBody // plain text body
   };
 
