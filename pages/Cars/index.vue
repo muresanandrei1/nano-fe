@@ -15,9 +15,8 @@ export default {
   mounted() {
     getAllCars().then(rsp => {
       const cars = rsp.data;
-      this.cars = cars.filter(car => car.tip === "car");
+      this.cars = cars && cars.filter(car => car.tip === "car");
     });
-    // apiCall("post", "/email/send-email", { email: "xx@xx.com" });
   }
 };
 </script>

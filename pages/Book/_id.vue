@@ -23,7 +23,7 @@
           <h1 class="total-price">
             Total:
             <span v-if="showPlaceholder">Va rog selectati datele</span>
-            <span v-else>{{getTotal || "0,00"}} &euro;</span>
+            <span v-else>{{getTotal || "0,00"}} &euro; + garantie {{this.car.pret4}} &euro;</span>
           </h1>
         </v-flex>
         <v-flex md4 class="higher-z" pt-4 v-if="this.car">
@@ -462,7 +462,7 @@ export default {
   }
 }
 .higher-z {
-  z-index: 10000;
+  z-index: 2;
 }
 .overlay {
   background-image: url("../../assets/texture.png");
@@ -518,6 +518,11 @@ export default {
 .date-section {
   p {
     margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 525px) {
+  .prices {
+    width: 100%;
   }
 }
 </style>

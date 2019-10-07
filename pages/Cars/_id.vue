@@ -115,7 +115,6 @@ export default {
   background-color: $pink;
   min-height: calc(100vh - 88px);
   z-index: 1;
-  height: calc(100vh - 88px);
 }
 .car-details {
   &__header {

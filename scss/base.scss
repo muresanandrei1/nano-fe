@@ -39,6 +39,9 @@
 
 body {
   font-family: "Roboto";
+  @media screen and (max-width: 520px) {
+    overflow-x: hidden;
+  }
 }
 
 .v-navigation-drawer {

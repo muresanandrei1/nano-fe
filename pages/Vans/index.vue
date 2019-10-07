@@ -14,7 +14,7 @@ export default {
   mounted() {
     getAllCars().then(rsp => {
       const vans = rsp.data;
-      this.vans = vans.filter(car => car.tip === "van");
+      this.vans = vans && vans.filter(car => car.tip === "van");
     });
   }
 };

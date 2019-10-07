@@ -26,7 +26,10 @@
 </template>
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  mounted() {
+    // this.$cookies.modal = true;
+  }
 };
 </script>
 <style lang="scss">
