@@ -403,7 +403,9 @@ export default {
           </div>
           <br />
           <div style="display: flex;">
-            <h1 style="color: #e84c3d">Total: ${this.getTotal}</h1>
+            <h1 style="color: #e84c3d">Total: ${
+              this.getTotal
+            } &euro; + garantie ${this.car.pret4} &euro;</h1>
           </div>
           <div style="width: 100%; text-align: center; background-color: #e84c3d; height: 60px; padding-top: 20px">
             <a href="https://nanorental.ro" style="text-decoration: none; color: white; font-size: 24px">Nano rent a car</a>
@@ -420,7 +422,7 @@ export default {
       };
       apiCall("post", "/email/send", {
         ...payload,
-        email: "murinuareemail@gmail.com"
+        email: "nano.rentacar.cluj@gmail.com"
       })
         .then(rsp => {
           apiCall("post", "/email/send", {
