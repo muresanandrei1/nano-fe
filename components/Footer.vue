@@ -10,6 +10,9 @@
             <v-flex>
               <a href="tel:0743285053">0743285053</a>
             </v-flex>
+            <v-flex md1>
+              <img src="../assets/plane.svg" height="20" />
+            </v-flex>
             <v-flex>
               <p>Livrare gratuita la aeroport</p>
             </v-flex>
