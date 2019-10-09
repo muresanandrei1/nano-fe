@@ -8,7 +8,7 @@
           <h1>PENTRU TINE.</h1>
           <div class="hero-text__bottom">
             <p class="bold">Mai jos poti gasi cea mai cool gama de masini.</p>
-            <p>alege preferata ta si exploreaza clujul</p>
+            <p>alege-o pe cea preferata si exploreaza</p>
           </div>
         </div>
       </div>

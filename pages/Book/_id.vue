@@ -160,6 +160,35 @@
               <v-textarea v-model="comanda.observatii" solo />
             </v-flex>
           </v-layout>
+          <v-layout row>
+            <v-flex md-6 mr-1 class="higher-z">
+              <p>Optiuni suplimentare</p>
+              <v-checkbox
+                v-model="comanda.optiuni"
+                label="Lanturi de zapada (3€/zi)"
+                color="#fff"
+                value="lanturi"
+              ></v-checkbox>
+              <v-checkbox color="#fff" v-model="comanda.optiuni" label="GPS (5€/zi)" value="gps"></v-checkbox>
+              <v-checkbox
+                color="#fff"
+                v-model="comanda.optiuni"
+                label="Scaun copil (3€/zi)"
+                value="scaun"
+              ></v-checkbox>
+              <v-checkbox
+                v-model="comanda.optiuni"
+                color="#fff"
+                label="Inchiriere cu sofer - 8 ore/zi (35€/zi)"
+                value="sofer"
+              ></v-checkbox>
+            </v-flex>
+          </v-layout>
+          <h1 class="total-price">
+            Total:
+            <span v-if="showPlaceholder">Va rog selectati datele</span>
+            <span v-else>{{getTotal || "0,00"}} &euro; + garantie {{this.car.pret4}} &euro;</span>
+          </h1>
         </v-flex>
       </v-layout>
       <v-layout>
@@ -203,7 +232,8 @@ export default {
       permis: "",
       zbor: "",
       observatii: "",
-      limba: ""
+      limba: "",
+      optiuni: []
     },
     locatii: ["Aeroport Cluj-Napoca", "Cluj-Napoca", "Targu-Mures", "Oradea"]
   }),
@@ -234,7 +264,42 @@ export default {
           price = this.car.pret3;
         }
       }
-      return parseInt(this.getNrOfDays, 10) * parseInt(price, 10);
+      let total = parseInt(this.getNrOfDays, 10) * parseInt(price, 10);
+      this.comanda.optiuni.map(option => {
+        switch (option) {
+          case "lanturi":
+            total += 3 * this.getNrOfDays;
+            break;
+          case "scaun":
+            total += 3 * this.getNrOfDays;
+            break;
+          case "sofer":
+            total += 35 * this.getNrOfDays;
+            break;
+          case "gps":
+            total += 5 * this.getNrOfDays;
+            break;
+          default:
+            return "";
+        }
+      });
+      return total;
+    },
+    renderOptions() {
+      return this.comanda.optiuni.map(option => {
+        switch (option) {
+          case "lanturi":
+            return "Lanturi de zapada";
+          case "scaun":
+            return "Scaun copil";
+          case "sofer":
+            return "Inchiriere cu sofer - 8 ore/zi";
+          case "gps":
+            return "GPS";
+          default:
+            return "";
+        }
+      });
     },
     getNrOfDays() {
       const date1 = new Date(this.comanda.preluare.data);
@@ -369,7 +434,7 @@ export default {
               </div>
               <div style="display: flex;">
                 <h4 style="padding-right: 10px; color: color: #e84c3d; margin-bottom: 0">
-                  <bold>Data dee preedare:</bold>
+                  <bold>Data de predare:</bold>
                 </h4>
                 <p style="margin-bottom: 0; padding-top: 4px;">
                   ${this.comanda.predare.data}, ora: ${this.comanda.predare
@@ -400,6 +465,16 @@ export default {
                   ${this.comanda.observatii || "---"}
                 </p>
             </div>
+              <div style="display: flex;">
+                <h4 style="padding-right: 10px; color: color: #e84c3d; margin-bottom: 0">
+                  <bold>Masina dorita:</bold>
+                </h4>
+                <p style="margin-bottom: 0; padding-top: 4px;">
+                  <ul>
+                    ${this.renderOptions.map(option => `<li>${option}</li>`)}
+                  </ul>
+                </p>
+              </div>
           </div>
           <br />
           <div style="display: flex;">

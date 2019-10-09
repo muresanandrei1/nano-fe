@@ -4,7 +4,7 @@
       <v-layout row wrap>
         <v-flex md12 class="item">
           <h1>Comanda a fost inregistrata!</h1>
-          <h2>Te v-om contacta in cel mai scurt timp.</h2>
+          <h2>Te vom contacta in cel mai scurt timp.</h2>
         </v-flex>
       </v-layout>
     </v-container>
