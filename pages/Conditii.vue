@@ -90,7 +90,19 @@
 
 <script>
 export default {
-  name: "Conditii"
+  name: "Conditii",
+  head() {
+    return {
+      title: "Conditii - Nano Rent a car",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Conditiile Nano Rent a car"
+        }
+      ]
+    };
+  }
 };
 </script>
 <style lang="scss" scoped>

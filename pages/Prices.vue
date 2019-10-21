@@ -26,6 +26,18 @@ export default {
   data: () => ({
     cars: []
   }),
+  head() {
+    return {
+      title: "Preturi - Nano Rent a car",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Preturile masinilor Nano Rent a car"
+        }
+      ]
+    };
+  },
   mounted() {
     getAllCars().then(rsp => (this.cars = rsp.data));
   }

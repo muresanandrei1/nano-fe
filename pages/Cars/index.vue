@@ -10,7 +10,19 @@ export default {
   name: "CarsPage",
   components: { List },
   data: () => ({
-    cars: []
+    cars: [],
+    head() {
+      return {
+        title: "Masini - Nano Rent a car",
+        meta: [
+          {
+            hid: "description",
+            name: "description",
+            content: "Lista masinilor Nano Rent a car"
+          }
+        ]
+      };
+    }
   }),
   mounted() {
     getAllCars().then(rsp => {

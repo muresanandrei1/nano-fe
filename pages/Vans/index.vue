@@ -9,7 +9,19 @@ export default {
   name: "VansPage",
   components: { List },
   data: () => ({
-    vans: []
+    vans: [],
+    head() {
+      return {
+        title: "Dube - Nano Rent a car",
+        meta: [
+          {
+            hid: "description",
+            name: "description",
+            content: "Lista dubelor Nano Rent a car"
+          }
+        ]
+      };
+    }
   }),
   mounted() {
     getAllCars().then(rsp => {

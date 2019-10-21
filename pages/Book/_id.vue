@@ -237,6 +237,18 @@ export default {
     },
     locatii: ["Aeroport Cluj-Napoca", "Cluj-Napoca", "Targu-Mures", "Oradea"]
   }),
+  head() {
+    return {
+      title: "Inchiriere - Nano Rent a car",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Inchiriaza masina Nano Rent a car"
+        }
+      ]
+    };
+  },
   created() {
     getCarById(this.$route.params.id).then(rsp => {
       this.car = rsp.data;

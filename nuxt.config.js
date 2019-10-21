@@ -14,7 +14,13 @@ module.exports = {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content:
+          "Alege masina potrivita pentru tine de la Nano Rent a car. Nano Rent a car vine cu o gama larga de masini sigure si comfortabile."
+      },
+      {
+        hid: "title",
+        name: "title",
+        content: "Nano rent a car"
       }
     ],
     link: [
