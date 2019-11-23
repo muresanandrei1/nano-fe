@@ -32,7 +32,7 @@ export default {
       const pejo = rsp.data.find(car => car.id === 18);
       const yaris = rsp.data.find(car => car.id === 16);
       const duster = rsp.data.find(car => car.id === 15);
-      this.cars = cars;
+      this.cars = [rapid, pejo, yaris, duster];
     });
   }
 };
