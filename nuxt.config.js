@@ -55,6 +55,13 @@ module.exports = {
       {
         pathRewrite: { "^/api": "" }
       }
+    ],
+    [
+      "@nuxtjs/robots",
+      {
+        UserAgent: "*",
+        Allow: "*"
+      }
     ]
   ],
   proxy: {
