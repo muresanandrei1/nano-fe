@@ -58,7 +58,7 @@ module.exports = {
     ],
   ],
   proxy: {
-    "/api": "localhost:1337",
+    "/api": "http://104.248.241.122:1337/",
   },
   /*
    ** vuetify module configuration
