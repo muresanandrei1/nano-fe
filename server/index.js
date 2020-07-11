@@ -14,10 +14,6 @@ const transporter = nodemailer.createTransport({
     user: "nano.rentacar.cluj@gmail.com",
     pass: "nanorentacar18",
   },
-  // auth: {
-  //   user: "nano.rentacar.cluj@gmail.com",
-  //   pass: "rentacarnano!",
-  // },
 });
 
 // Import and Set Nuxt.js options

@@ -174,7 +174,7 @@ export default {
         };
         apiCall("post", "/email/send", {
           ...payload,
-          email: "muresan.1andrei@gmail.com",
+          email: "nano.rentacar.cluj@gmail.com",
         }).then(() => {
           this.$router.push("/done?contact=true");
         });
