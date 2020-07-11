@@ -3,7 +3,7 @@
     <v-container>
       <v-layout row wrap>
         <v-flex md12 class="item">
-          <h1>Comanda a fost inregistrata!</h1>
+          <h1>{{ title }}</h1>
           <h2>Te vom contacta in cel mai scurt timp.</h2>
         </v-flex>
       </v-layout>
@@ -14,7 +14,14 @@
 
 <script>
 export default {
-  name: "Conditii"
+  name: "Conditii",
+  computed: {
+    title() {
+      return this.$route.query.contact
+        ? "Mesajul tau a fost trimis cu succes!"
+        : "Comanda a fost inregistrata!";
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

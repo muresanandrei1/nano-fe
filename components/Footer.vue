@@ -22,20 +22,34 @@
         <v-flex md1></v-flex>
         <v-flex md1>
           <v-layout row class="cards">
-            <img src="../assets/visa-inc-vector-logo.png" height="30" class="visa" />
+            <img
+              src="../assets/visa-inc-vector-logo.png"
+              height="30"
+              class="visa"
+            />
             <img src="../assets/mastercard-logo.png" height="30" />
           </v-layout>
         </v-flex>
       </v-layout>
     </v-container>
+    <v-layout column align-center justify-center v-if="copy">
+      <v-flex py-2 align-center justify-center>
+        <h1>
+          Copyright Nano-Rentacar – Inchirieri auto si Rent a Car Cluj-Napoca
+        </h1>
+      </v-flex>
+    </v-layout>
   </footer>
 </template>
 <script>
 export default {
   name: "Footer",
-  mounted() {
-    // this.$cookies.modal = true;
-  }
+  props: {
+    copy: {
+      default: true,
+      type: Boolean,
+    },
+  },
 };
 </script>
 <style lang="scss">

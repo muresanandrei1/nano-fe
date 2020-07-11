@@ -6,8 +6,10 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate: "%s - " + process.env.npm_package_name,
-    title: "Nano Rental",
+    titleTemplate:
+      "Inchirieri auto si rent a car aeroport Cluj |Inchirieri masini Cluj| by Nano rent a car Cluj",
+    title:
+      "Inchirieri auto si rent a car aeroport Cluj |Inchirieri masini Cluj| by Nano rent a car Cluj",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -15,22 +17,17 @@ module.exports = {
         hid: "description",
         name: "description",
         content:
-          "Alege masina potrivita pentru tine de la Nano Rent a car. Nano Rent a car vine cu o gama larga de masini sigure si comfortabile."
+          "Cautati masini de inchiriat in Cluj ?  Nano-rent a car Cluj va furnizeaza servicii de inchirieri de maşini si rent a car cu sau fară sofer în Aeroportul International Avram Iancu Cluj-Napoca",
       },
-      {
-        hid: "title",
-        name: "title",
-        content: "Nano rent a car"
-      }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-      }
-    ]
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons",
+      },
+    ],
   },
   serverMiddleware: [{ path: "/email/send", handler: "~/service/email" }],
   /*
@@ -53,19 +50,19 @@ module.exports = {
     [
       "@nuxtjs/proxy",
       {
-        pathRewrite: { "^/api": "" }
-      }
+        pathRewrite: { "^/api": "" },
+      },
     ],
     [
       "@nuxtjs/robots",
       {
         UserAgent: "*",
-        Allow: "*"
-      }
-    ]
+        Allow: "*",
+      },
+    ],
   ],
   proxy: {
-    "/api": "http://localhost:1337"
+    "/api": "https://nano-rentacar.ro/api/",
   },
   /*
    ** vuetify module configuration
@@ -79,8 +76,8 @@ module.exports = {
       info: "#2196f3",
       warning: "#ff5252",
       error: "#ff5252",
-      success: "#4caf50"
-    }
+      success: "#4caf50",
+    },
   },
   /*
    ** Build configuration
@@ -89,6 +86,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 };

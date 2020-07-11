@@ -1,5 +1,6 @@
 <template>
   <div class="main-navigation">
+    <Footer :copy="false" />
     <v-container>
       <v-layout row justify-space-between>
         <v-flex md2>
@@ -9,7 +10,7 @@
         </v-flex>
         <v-layout row justify-end align-center class="hidden-sm-and-down">
           <v-flex v-for="link in links" :key="link.name" px-1 class="menu-item">
-            <router-link :to="link.route">{{link.name}}</router-link>
+            <router-link :to="link.route">{{ link.name }}</router-link>
           </v-flex>
         </v-layout>
         <div class="hidden-md-and-up">
@@ -18,7 +19,7 @@
             <v-list class="mobile-menu">
               <v-list-tile v-for="link in links" :key="link.name">
                 <v-list-tile-content class="menu-item large pb-2">
-                  <router-link :to="link.route">{{link.name}}</router-link>
+                  <router-link :to="link.route">{{ link.name }}</router-link>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
@@ -30,29 +31,35 @@
 </template>
 
 <script>
+import Footer from "./Footer";
 export default {
   name: "Navigation",
+  components: { Footer },
   data: () => ({
     links: [
       {
         name: "Masini",
-        route: "/cars"
+        route: "/cars",
       },
       {
         name: "Van-uri",
-        route: "/vans"
+        route: "/vans",
       },
       {
         name: "Tarife",
-        route: "/prices"
+        route: "/prices",
       },
       {
         name: "Conditii",
-        route: "/conditii"
-      }
+        route: "/conditii",
+      },
+      {
+        name: "Contact",
+        route: "/contact",
+      },
     ],
-    drawer: null
-  })
+    drawer: null,
+  }),
 };
 </script>
 <style lang="scss" scoped>

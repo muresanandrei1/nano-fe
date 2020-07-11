@@ -15,19 +15,22 @@
             </div>
             <div class="prices__content">
               <h2>&euro; / zi</h2>
-              <h2>{{this.car.pret1}}</h2>
-              <h2>{{this.car.pret2}}</h2>
-              <h2>{{this.car.pret3}}</h2>
+              <h2>{{ this.car.pret1 }}</h2>
+              <h2>{{ this.car.pret2 }}</h2>
+              <h2>{{ this.car.pret3 }}</h2>
             </div>
           </div>
           <h1 class="total-price">
             Total:
             <span v-if="showPlaceholder">Va rog selectati datele</span>
-            <span v-else>{{getTotal || "0,00"}} &euro; + garantie {{this.car.pret4}} &euro;</span>
+            <span v-else
+              >{{ getTotal || "0,00" }} &euro; + garantie
+              {{ this.car.pret4 }} &euro;</span
+            >
           </h1>
         </v-flex>
         <v-flex md4 class="higher-z" pt-4 v-if="this.car">
-          <h2>{{this.car.nume}}</h2>
+          <h2>{{ this.car.nume }}</h2>
           <img :src="`/api${this.car.poza.url}`" />
         </v-flex>
       </v-layout>
@@ -49,9 +52,18 @@
                 :min="minDate"
               >
                 <template v-slot:activator="{ on }">
-                  <v-text-field v-model="comanda.preluare.data" append-icon="event" v-on="on" solo></v-text-field>
+                  <v-text-field
+                    v-model="comanda.preluare.data"
+                    append-icon="event"
+                    v-on="on"
+                    solo
+                  ></v-text-field>
                 </template>
-                <v-date-picker v-model="comanda.preluare.data" no-title @input="menu1 = false"></v-date-picker>
+                <v-date-picker
+                  v-model="comanda.preluare.data"
+                  no-title
+                  @input="menu1 = false"
+                ></v-date-picker>
               </v-menu>
             </v-flex>
             <v-flex md6 ml-2>
@@ -62,7 +74,11 @@
           <v-layout row>
             <v-flex md12>
               <p>Locatie</p>
-              <v-select :items="locatii" solo v-model="comanda.preluare.locatie" />
+              <v-select
+                :items="locatii"
+                solo
+                v-model="comanda.preluare.locatie"
+              />
             </v-flex>
           </v-layout>
         </v-flex>
@@ -83,9 +99,18 @@
                 :min="minDate"
               >
                 <template v-slot:activator="{ on }">
-                  <v-text-field v-model="comanda.predare.data" append-icon="event" v-on="on" solo></v-text-field>
+                  <v-text-field
+                    v-model="comanda.predare.data"
+                    append-icon="event"
+                    v-on="on"
+                    solo
+                  ></v-text-field>
                 </template>
-                <v-date-picker v-model="comanda.predare.data" no-title @input="menu2 = false"></v-date-picker>
+                <v-date-picker
+                  v-model="comanda.predare.data"
+                  no-title
+                  @input="menu2 = false"
+                ></v-date-picker>
               </v-menu>
             </v-flex>
             <v-flex md6 ml-2>
@@ -96,104 +121,184 @@
           <v-layout row>
             <v-flex md12>
               <p>Locatie</p>
-              <v-select :items="locatii" solo v-model="comanda.predare.locatie" />
+              <v-select
+                :items="locatii"
+                solo
+                v-model="comanda.predare.locatie"
+              />
             </v-flex>
           </v-layout>
         </v-flex>
       </v-layout>
       <v-layout row wrap class="date-section">
         <v-flex md12 pt-5 class="higher-z">
-          <h1>Date de contact</h1>
-          <v-layout row>
-            <v-flex md3 mr-2>
-              <p>nume</p>
-              <v-text-field v-model="comanda.nume" solo />
-            </v-flex>
-            <v-flex md3 ml-2 pr-4>
-              <p>prenume</p>
-              <v-text-field v-model="comanda.prenume" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md6 mr-1>
-              <p>email</p>
-              <v-text-field v-model="comanda.email" solo />
-            </v-flex>
-            <v-flex md6 ml-2 pl-1>
-              <p>Numar de telefon</p>
-              <v-text-field v-model="comanda.telefon" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md6 mr-1>
-              <p>Serie Pass/CI</p>
-              <v-text-field v-model="comanda.serie" solo />
-            </v-flex>
-            <v-flex md6 ml-2 pl-1>
-              <p>CNP</p>
-              <v-text-field v-model="comanda.cnp" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md6 mr-1>
-              <p>Tara rezidenta</p>
-              <v-text-field v-model="comanda.tara" solo />
-            </v-flex>
-            <v-flex md6 ml-2 pl-1>
-              <p>Serie Permis</p>
-              <v-text-field v-model="comanda.permis" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md6 mr-1>
-              <p>Nr. Zbor</p>
-              <v-text-field v-model="comanda.zbor" solo />
-            </v-flex>
-            <v-flex md6 ml-2 pl-1>
-              <p>Limba</p>
-              <v-text-field v-model="comanda.limba" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md-6 mr-1>
-              <p>Observatii</p>
-              <v-textarea v-model="comanda.observatii" solo />
-            </v-flex>
-          </v-layout>
-          <v-layout row>
-            <v-flex md-6 mr-1 class="higher-z">
-              <p>Optiuni suplimentare</p>
-              <v-checkbox
-                v-model="comanda.optiuni"
-                label="Lanturi de zapada (3€/zi)"
-                color="#fff"
-                value="lanturi"
-              ></v-checkbox>
-              <v-checkbox color="#fff" v-model="comanda.optiuni" label="GPS (5€/zi)" value="gps"></v-checkbox>
-              <v-checkbox
-                color="#fff"
-                v-model="comanda.optiuni"
-                label="Scaun copil (3€/zi)"
-                value="scaun"
-              ></v-checkbox>
-              <v-checkbox
-                v-model="comanda.optiuni"
-                color="#fff"
-                label="Inchiriere cu sofer - 8 ore/zi (35€/zi)"
-                value="sofer"
-              ></v-checkbox>
-            </v-flex>
-          </v-layout>
-          <h1 class="total-price">
-            Total:
-            <span v-if="showPlaceholder">Va rog selectati datele</span>
-            <span v-else>{{getTotal || "0,00"}} &euro; + garantie {{this.car.pret4}} &euro;</span>
-          </h1>
+          <v-form ref="form" v-model="formValid">
+            <h1>Date de contact</h1>
+            <v-layout row>
+              <v-flex md3 mr-2>
+                <p>nume</p>
+                <v-text-field
+                  v-model="comanda.nume"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+              <v-flex md3 ml-2 pr-4>
+                <p>prenume</p>
+                <v-text-field
+                  v-model="comanda.prenume"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md6 mr-1>
+                <p>email</p>
+                <v-text-field
+                  v-model="comanda.email"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+              <v-flex md6 ml-2 pl-1>
+                <p>Numar de telefon</p>
+                <v-text-field
+                  v-model="comanda.telefon"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md6 mr-1>
+                <p>Serie Pass/CI</p>
+                <v-text-field
+                  v-model="comanda.serie"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+              <v-flex md6 ml-2 pl-1>
+                <p>CNP</p>
+                <v-text-field
+                  v-model="comanda.cnp"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md6 mr-1>
+                <p>Tara rezidenta</p>
+                <v-text-field
+                  v-model="comanda.tara"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+              <v-flex md6 ml-2 pl-1>
+                <p>Serie Permis</p>
+                <v-text-field
+                  v-model="comanda.permis"
+                  solo
+                  required
+                  :rules="requiredRule"
+                />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md6 mr-1>
+                <p>Nr. Zbor</p>
+                <v-text-field v-model="comanda.zbor" solo />
+              </v-flex>
+              <v-flex md6 ml-2 pl-1>
+                <p>Limba</p>
+                <v-text-field v-model="comanda.limba" solo />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md-6 mr-1>
+                <p>Observatii</p>
+                <v-textarea v-model="comanda.observatii" solo />
+              </v-flex>
+            </v-layout>
+            <v-layout row>
+              <v-flex md-6 mr-1 class="higher-z">
+                <p>Optiuni suplimentare</p>
+                <v-checkbox
+                  v-model="comanda.optiuni"
+                  label="Lanturi de zapada (3€/zi)"
+                  color="#fff"
+                  value="lanturi"
+                ></v-checkbox>
+                <v-checkbox
+                  color="#fff"
+                  v-model="comanda.optiuni"
+                  label="GPS (5€/zi)"
+                  value="gps"
+                ></v-checkbox>
+                <v-checkbox
+                  color="#fff"
+                  v-model="comanda.optiuni"
+                  label="Scaun copil (3€/zi)"
+                  value="scaun"
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="comanda.optiuni"
+                  color="#fff"
+                  label="Inchiriere cu sofer - 8 ore/zi (35€/zi)"
+                  value="sofer"
+                ></v-checkbox>
+              </v-flex>
+            </v-layout>
+            <h1 class="total-price">
+              Total:
+              <span v-if="showPlaceholder">Va rog selectati datele</span>
+              <span v-else
+                >{{ getTotal || "0,00" }} &euro; + garantie
+                {{ this.car.pret4 }} &euro;</span
+              >
+            </h1>
+          </v-form>
+        </v-flex>
+      </v-layout>
+      <v-layout>
+        <v-flex class="higher-z">
+          <v-radio-group v-model="plata">
+            <v-radio
+              color="white"
+              label="Plata se face cash"
+              value="cash"
+            ></v-radio>
+            <v-radio
+              color="white"
+              label="Plata se face cu cardul"
+              value="card"
+            ></v-radio>
+          </v-radio-group>
+        </v-flex>
+      </v-layout>
+      <v-layout class="higher-z">
+        <v-flex>
+          <p class="mb-3">
+            * Apasand butonul Rezerva sunteti de acord cu termeni si conditiile
+            Nano rent a car.
+          </p>
         </v-flex>
       </v-layout>
       <v-layout>
         <v-flex md4 class="higher-z">
-          <button class="btn btn-dark btn-submit" @click="sendOrder()">Rezerva</button>
+          <button class="btn btn-dark btn-submit" @click="sendOrder()">
+            Rezerva
+          </button>
         </v-flex>
       </v-layout>
     </v-container>
@@ -210,17 +315,21 @@ export default {
   data: () => ({
     menu1: false,
     menu2: false,
+    agreed: false,
+    formValid: false,
     car: undefined,
+    requiredRule: [(v) => !!v || "Campul este obligatoriu."],
+    plata: "cash",
     comanda: {
       preluare: {
         data: "",
         ora: "",
-        locatie: "Aeroport Cluj-Napoca"
+        locatie: "Aeroport Cluj-Napoca",
       },
       predare: {
         data: "",
         ora: "",
-        locatie: "Aeroport Cluj-Napoca"
+        locatie: "Aeroport Cluj-Napoca",
       },
       nume: "",
       prenume: "",
@@ -233,9 +342,9 @@ export default {
       zbor: "",
       observatii: "",
       limba: "",
-      optiuni: []
+      optiuni: [],
     },
-    locatii: ["Aeroport Cluj-Napoca", "Cluj-Napoca", "Targu-Mures", "Oradea"]
+    locatii: ["Aeroport Cluj-Napoca", "Cluj-Napoca", "Targu-Mures", "Oradea"],
   }),
   head() {
     return {
@@ -244,13 +353,13 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Inchiriaza masina Nano Rent a car"
-        }
-      ]
+          content: "Inchiriaza masina Nano Rent a car",
+        },
+      ],
     };
   },
   created() {
-    getCarById(this.$route.params.id).then(rsp => {
+    getCarById(this.$route.params.id).then((rsp) => {
       this.car = rsp.data;
     });
   },
@@ -277,7 +386,7 @@ export default {
         }
       }
       let total = parseInt(this.getNrOfDays, 10) * parseInt(price, 10);
-      this.comanda.optiuni.map(option => {
+      this.comanda.optiuni.map((option) => {
         switch (option) {
           case "lanturi":
             total += 3 * this.getNrOfDays;
@@ -298,7 +407,7 @@ export default {
       return total;
     },
     renderOptions() {
-      return this.comanda.optiuni.map(option => {
+      return this.comanda.optiuni.map((option) => {
         switch (option) {
           case "lanturi":
             return "Lanturi de zapada";
@@ -319,7 +428,7 @@ export default {
       const Difference_In_Time = date2.getTime() - date1.getTime();
       const diff = Difference_In_Time / (1000 * 3600 * 24);
       return diff;
-    }
+    },
   },
   methods: {
     formatDate(date) {
@@ -331,6 +440,9 @@ export default {
       if (day.length < 2) day = `0${day}`;
 
       return [year, month, day].join("-");
+    },
+    validate() {
+      this.$refs.form.validate();
     },
     clientMail() {
       const mail = `
@@ -483,7 +595,7 @@ export default {
                 </h4>
                 <p style="margin-bottom: 0; padding-top: 4px;">
                   <ul>
-                    ${this.renderOptions.map(option => `<li>${option}</li>`)}
+                    ${this.renderOptions.map((option) => `<li>${option}</li>`)}
                   </ul>
                 </p>
               </div>
@@ -495,39 +607,42 @@ export default {
             } &euro; + garantie ${this.car.pret4} &euro;</h1>
           </div>
           <div style="width: 100%; text-align: center; background-color: #e84c3d; height: 60px; padding-top: 20px">
-            <a href="https://nanorental.ro" style="text-decoration: none; color: white; font-size: 24px">Nano rent a car</a>
+            <a href="https://nano-rentacar.ro/" style="text-decoration: none; color: white; font-size: 24px">Nano rent a car</a>
           </div>
         </div>
       `;
       return mail;
     },
     sendOrder() {
-      const payload = {
-        comanda: this.comanda,
-        masina: this.car,
-        body: this.clientMail()
-      };
-      apiCall("post", "/email/send", {
-        ...payload,
-        email: "nano.rentacar.cluj@gmail.com"
-      })
-        .then(rsp => {
-          apiCall("post", "/email/send", {
-            ...payload,
-            email: this.comanda.email
-          })
-            .then(rsp => {
-              this.$router.push("/done");
-            })
-            .catch(err => console.log(err));
-          apiCall("post", "/email/send", {
-            ...payload,
-            email: "kamy_g_marius@yahoo.com"
-          });
+      this.validate();
+      if (this.formValid) {
+        const payload = {
+          comanda: this.comanda,
+          masina: this.car,
+          body: this.clientMail(),
+        };
+        apiCall("post", "/email/send", {
+          ...payload,
+          email: "nano.rentacar.cluj@gmail.com",
         })
-        .catch(err => console.log(err));
-    }
-  }
+          .then((rsp) => {
+            apiCall("post", "/email/send", {
+              ...payload,
+              email: this.comanda.email,
+            })
+              .then((rsp) => {
+                this.$router.push("/done");
+              })
+              .catch((err) => console.log(err));
+            apiCall("post", "/email/send", {
+              ...payload,
+              email: "kamy_g_marius@yahoo.com",
+            });
+          })
+          .catch((err) => console.log(err));
+      }
+    },
+  },
 };
 </script>
 

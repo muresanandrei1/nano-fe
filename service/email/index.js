@@ -8,11 +8,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     user: "nano.rentacar.cluj@gmail.com",
-    pass: "rentacarnano"
-  }
+    pass: "nanorentacar18",
+  },
 });
 
 app.post("/", (req, res) => {
@@ -21,7 +24,7 @@ app.post("/", (req, res) => {
     from: "comanda@nanorental.ro", // sender address
     to: req.body.email, // list of receivers
     subject: "Comanda Nano Rent a car", // Subject line
-    html: mailBody // plain text body
+    html: mailBody, // plain text body
   };
 
   transporter.sendMail(mailOptions);

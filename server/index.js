@@ -6,11 +6,18 @@ const { Nuxt, Builder } = require("nuxt");
 const app = express();
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     user: "nano.rentacar.cluj@gmail.com",
-    pass: "rentacarnano!"
-  }
+    pass: "nanorentacar18",
+  },
+  // auth: {
+  //   user: "nano.rentacar.cluj@gmail.com",
+  //   pass: "rentacarnano!",
+  // },
 });
 
 // Import and Set Nuxt.js options
@@ -42,28 +49,13 @@ async function start() {
       const output = `
       <p>You have a new message</p>
       <h3>Contact details</h3>
-      <ul>
-        <li>
-          Name: waht
-        </li>
-        <li>
-          Email: qq
-        </li>
-        <li>
-          Phone-Number: eee
-        </li>
-      </ul>
-      <p>Message:</p>
-      <p>
-        wadsadwa
-      </p>
     `;
 
       const mailOptions = {
         from: req.body.email, // sender address
         to: "muresan.1andrei@gmail.com", // list of receivers
         subject: "Comanda Nano Rent a car", // Subject line
-        html: output // plain text body
+        html: output, // plain text body
       };
 
       transporter.sendMail(mailOptions, function(err, info) {
@@ -77,7 +69,7 @@ async function start() {
     .listen(port, host);
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
-    badge: true
+    badge: true,
   });
 }
 start();
