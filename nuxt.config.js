@@ -62,7 +62,7 @@ module.exports = {
     ],
   ],
   proxy: {
-    "/api": "https://nano-rentacar.ro/api/",
+    "/api": "localhost:1337",
   },
   /*
    ** vuetify module configuration
