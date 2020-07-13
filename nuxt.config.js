@@ -6,8 +6,9 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    titleTemplate:
+    title:
       "Inchirieri auto si rent a car aeroport Cluj | Inchirieri masini Cluj | by Nano rent a car Cluj",
+    titleTemplate: "%s",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
