@@ -39,15 +39,15 @@ export default {
     links: [
       {
         name: "Masini",
-        route: "/cars",
+        route: "/masini",
       },
       {
         name: "Van-uri",
-        route: "/vans",
+        route: "/dube",
       },
       {
         name: "Tarife",
-        route: "/prices",
+        route: "/preturi",
       },
       {
         name: "Conditii",

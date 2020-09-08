@@ -46,6 +46,7 @@ module.exports = {
    */
   modules: [
     "@nuxtjs/vuetify",
+    "@nuxtjs/axios",
     [
       "@nuxtjs/proxy",
       {
@@ -62,6 +63,9 @@ module.exports = {
   ],
   proxy: {
     "/api": "http://104.248.241.122:1337/",
+  },
+  axios: {
+    proxyHeaders: false,
   },
   /*
    ** vuetify module configuration

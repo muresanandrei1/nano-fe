@@ -2,12 +2,14 @@
   <div class="car-item">
     <img :src="`api${car.poza.url}`" width="250" />
     <div class="car-content">
-      <h1 class="car-name">{{car.nume}}</h1>
+      <h1 class="car-name">{{ car.nume }}</h1>
       <p class="car-price">
         Pret incepand de la
-        <span>{{car.pret3}} &euro; / zi</span>
+        <span>{{ car.pret3 }} &euro; / zi</span>
       </p>
-      <router-link :to="{ path: `/cars/${car.id}` }" class="btn">Detalii</router-link>
+      <router-link :to="{ path: `/masini/${car.id}` }" class="btn"
+        >Detalii</router-link
+      >
     </div>
   </div>
 </template>
@@ -15,7 +17,7 @@
 <script>
 export default {
   name: "Car",
-  props: ["car"]
+  props: ["car"],
 };
 </script>
 

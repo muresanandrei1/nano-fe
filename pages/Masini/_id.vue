@@ -56,9 +56,6 @@ import ValueRow from "../../components/ValueRow";
 
 export default {
   name: "CarDetails",
-  data: () => ({
-    car: undefined,
-  }),
   head() {
     return {
       title: `${this.car &&
@@ -88,10 +85,11 @@ export default {
     };
   },
   components: { ValueRow },
-  created() {
-    getCarById(this.$route.params.id).then((rsp) => {
-      this.car = rsp.data;
-    });
+  async asyncData({ $axios, params, error }) {
+    const car = await $axios.get(`/api/cars/${params.id}`);
+    return {
+      car: car.data,
+    };
   },
 };
 </script>

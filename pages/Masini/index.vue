@@ -48,15 +48,11 @@
   </div>
 </template>
 <script>
-import { getAllCars } from "../../service/cars";
-import { apiCall } from "../../service/api";
-
 import List from "../../layouts/List";
 export default {
   name: "CarsPage",
   components: { List },
   data: () => ({
-    cars: [],
     head() {
       return {
         title: "Flota masini de inchiriat si rent a car Nano Rent a car Cluj",
@@ -77,11 +73,12 @@ export default {
       };
     },
   }),
-  mounted() {
-    getAllCars().then((rsp) => {
-      const cars = rsp.data;
-      this.cars = cars && cars.filter((car) => car.tip === "car");
-    });
+  async asyncData({ $axios, params, error }) {
+    const allCars = await $axios.get("/api/cars");
+    const cars = allCars && allCars.data.filter((car) => car.tip === "car");
+    return {
+      cars,
+    };
   },
 };
 </script>

@@ -32,12 +32,14 @@
       <v-flex class="z-indexpower">
         <h2 class="head1">
           Descopera oferta completa de masini de
-          <router-link to="/cars">inchiriat</router-link>
+          <router-link to="/masini">inchiriat</router-link>
         </h2>
         <h2 class="head2">
           Nano-Rent a car Cluj-Napoca este o echipa cu experienta din domeniul
           rent a car care va furnizeaza servicii de
-          <router-link to="/cars">inchirieri masini si rent a car</router-link>
+          <router-link to="/masini"
+            >inchirieri masini si rent a car</router-link
+          >
           cu sau fară sofer, cu <bold>preluare şi livrare gratuita</bold> în
           <bold>Aeroportul International Avram Iancu Cluj-Napoca.</bold>
         </h2>
@@ -50,7 +52,7 @@
             <h2>
               Echipa de la Nano-Rent a car Cluj-Napoca va sta la dispozitie
               non-stop cu o gama diversificata
-              <router-link to="/cars">de masini de inchiriat</router-link>
+              <router-link to="/masini">de masini de inchiriat</router-link>
               complet echipate pentru siguranta si confortul dumneavoastra la
               <span class="color-red"
                 >cele mai mici preturi de pe piata de rent a car</span
@@ -74,7 +76,9 @@
             <h2>
               Nano-Rent a car se adreseaza tuturor persoanelor aflate fie in
               vacanta, fie in interes de serviciu si care doresc sa
-              <router-link to="/cars">inchirieze o masina in Cluj.</router-link>
+              <router-link to="/masini"
+                >inchirieze o masina in Cluj.</router-link
+              >
             </h2>
           </div>
         </v-container>
@@ -160,9 +164,6 @@ export default {
   },
   components: {
     HomeCars,
-  },
-  mounted() {
-    console.log(this.$vuetify.breakpoint);
   },
 };
 </script>
