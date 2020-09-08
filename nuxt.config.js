@@ -64,8 +64,10 @@ module.exports = {
   proxy: {
     "/api": "http://104.248.241.122:1337/",
   },
+
   axios: {
-    proxyHeaders: false,
+    proxy: true,
+    baseURL: "https://nano-rentacar.ro",
   },
   /*
    ** vuetify module configuration
