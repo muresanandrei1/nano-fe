@@ -66,7 +66,6 @@ module.exports = {
   },
 
   axios: {
-    proxy: true,
     baseURL: "https://nano-rentacar.ro",
   },
   /*
