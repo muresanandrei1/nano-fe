@@ -74,7 +74,7 @@ export default {
     },
   }),
   async asyncData({ $axios, params, error }) {
-    const allCars = await $axios.get("/api/cars");
+    const allCars = await $axios.get("api/cars");
     const cars = allCars && allCars.data.filter((car) => car.tip === "car");
     return {
       cars,

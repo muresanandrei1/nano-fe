@@ -51,7 +51,6 @@
   </div>
 </template>
 <script>
-import { getCarById } from "../../service/cars";
 import ValueRow from "../../components/ValueRow";
 
 export default {
@@ -86,7 +85,7 @@ export default {
   },
   components: { ValueRow },
   async asyncData({ $axios, params, error }) {
-    const car = await $axios.get(`/api/cars/${params.id}`);
+    const car = await $axios.get(`api/cars/${params.id}`);
     return {
       car: car.data,
     };

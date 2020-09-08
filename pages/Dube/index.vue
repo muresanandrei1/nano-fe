@@ -39,7 +39,6 @@ export default {
   name: "VansPage",
   components: { List },
   data: () => ({
-    vans: [],
     head() {
       return {
         title: "Flota masini de inchiriat si rent a car Nano Rent a car Cluj",
@@ -60,11 +59,12 @@ export default {
       };
     },
   }),
-  mounted() {
-    getAllCars().then((rsp) => {
-      const vans = rsp.data;
-      this.vans = vans && vans.filter((car) => car.tip === "van");
-    });
+  async asyncData({ $axios, params, error }) {
+    const allCars = await $axios.get("api/cars");
+    const vans = allCars && allCars.data.filter((car) => car.tip === "van");
+    return {
+      vans,
+    };
   },
 };
 </script>
