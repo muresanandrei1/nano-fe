@@ -22,7 +22,7 @@
     "mailgun-js": "^0.22.0",
     "nodemailer": "^6.2.1",
     "nodemailer-mailgun-transport": "^1.4.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "validator": "^11.1.0",
     "vue2-datepicker": "^2.12.0",
     "xss-filters": "^1.2.7"
